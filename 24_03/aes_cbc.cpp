@@ -24,7 +24,7 @@ void encrypt(FILE *f_in, FILE *f_out,
       // Encrypt that bytes 
       handle_negative_ssl(EVP_EncryptUpdate(ctx, ciphertext, &written, plaintext, read), "update");
       // Save ciphertext to file
-      handle_zero(fwrite(ciphertext, 1, written, f_out), "fwrite");
+      fwrite(ciphertext, 1, written, f_out);
    }
    // something go wrong, abort
    if (!feof(f_in)) {
@@ -51,7 +51,7 @@ void decrypt(FILE *f_in, FILE *f_out,
       // Encrypt that bytes 
       handle_negative_ssl(EVP_DecryptUpdate(ctx, plaintext, &written, ciphertext, read), "update");
       // Save ciphertext to file
-      handle_zero(fwrite(plaintext, 1, written, f_out), "fwrite");
+      fwrite(plaintext, 1, written, f_out);
    }
    // something go wrong, abort
    if (!feof(f_in)) {
