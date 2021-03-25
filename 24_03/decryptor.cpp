@@ -21,7 +21,7 @@ int main() {
    decrypt(f_in, f_out, ciphertext, plaintext, key, iv);
    puts("Decryption done!");
    // before deallocating, refresh the memory!
-   memset(plaintext, 0, BUF_SIZE);
+   memset(plaintext, 0, BUF_SIZE + BLOCK_SIZE);
    free(plaintext);
    memset(iv, 0, BLOCK_SIZE);
    free(iv);
