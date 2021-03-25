@@ -1,0 +1,1 @@
+static unsigned char key [] = "An unuseful key";
